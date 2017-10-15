@@ -1,3 +1,41 @@
 #
-# system.prop for __DEVICE__
+# system.prop for molly
 #
+
+# GPU producer to CPU consumer not supported
+ro.bq.gpu_to_cpu_unsupported=1
+
+# from dalmore, check nvidia
+persist.tegra.nvmmlite = 1
+
+# HDMI only display
+persist.tegra.hdmi.primary = 1
+
+# hwcomposer selects max HDMI resolution
+persist.sys.hdmi.resolution = Max
+
+# hwcomposer tells surface flinger to always use 1920x1080 resolution
+# regardless of HDMI mode
+persist.sys.display.resolution = 1920x1080
+
+# use glcomposer as the default compositor
+persist.tegra.compositor=glcomposer
+
+# disable EGL_BUFFER_PRESERVED extension for OpenGLRenderer
+debug.hwui.render_dirty_regions=false
+
+# hwui parameters
+ro.hwui.texture_cache_size=48.0
+ro.hwui.layer_cache_size=32.0
+ro.hwui.gradient_cache_size=0.8
+ro.hwui.path_cache_size=24.0
+ro.hwui.shape_cache_size=3.0
+ro.hwui.drop_shadow_cache_size=4.0
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=512
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+ro.hwui.texture_cache_flushrate=0.4
+
+# Set carrier
+ro.carrier=wifi-only
