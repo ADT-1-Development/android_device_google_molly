@@ -24,6 +24,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true \
     ro.com.widevine.cachesize=16777216
 
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.molly
+
 # Stagefright
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.cache-params=10240/20480/15 \
