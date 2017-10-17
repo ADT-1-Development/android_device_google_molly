@@ -1,0 +1,26 @@
+[
+  {
+    "remote": "github",
+    "repository": "PureNexusProject-legacy/android_hardware_marvell_wlan",
+    "target_path": "hardware_marvell_wlan"
+    "revision": "mm2"
+  },
+  {
+    "remote": "github",
+    "repository": "adt1-dev/android_kernel_google_molly",
+    "target_path": "kernel/google/molly"
+    "revision": "upstream-n" 
+  },
+  {
+    "remote": "github",
+    "repository": "adt1-dev/MollyLED",
+    "target_path": "packages/apps/MollyLED"
+    "revision": "release_1.0"
+  },
+  {
+    "remote": "github",
+    "repository": "adt1-dev/proprietary_vendor_google",
+    "target_path": "vendor_google_molly"
+    "revision": "mm-tablet"
+  }
+] 
