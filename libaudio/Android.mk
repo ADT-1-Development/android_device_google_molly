@@ -27,8 +27,7 @@ LOCAL_SRC_FILES := \
     HDMIAudioOutput.cpp \
     AudioHardwareInput.cpp \
     AudioStreamIn.cpp \
-    AudioHotplugThread.cpp \
-    LinearTransform.cpp
+    AudioHotplugThread.cpp
 
 LOCAL_C_INCLUDES := \
     external/tinyalsa/include \
@@ -62,8 +61,6 @@ LOCAL_STATIC_LIBRARIES += libmedia_helper
 LOCAL_MODULE := libatv_audio
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_CFLAGS += -Werror
-
 include $(BUILD_SHARED_LIBRARY)
 
 
@@ -88,10 +85,8 @@ LOCAL_SHARED_LIBRARIES := \
     libatv_audio
 
 LOCAL_MODULE := audio.primary.molly
-LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
-
-LOCAL_CFLAGS += -Werror
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -131,7 +126,5 @@ endif
 
 LOCAL_MODULE := libaudiopolicymanager
 LOCAL_MODULE_TAGS := optional
-
-LOCAL_CFLAGS += -Werror
 
 include $(BUILD_SHARED_LIBRARY)
