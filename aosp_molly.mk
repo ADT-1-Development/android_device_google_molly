@@ -21,6 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 PRODUCT_PACKAGES += \
      Launcher3
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    $(LOCAL_PATH)/permissions/aosp_molly.xml:system/etc/permissions/aosp_molly.xml
+
 PRODUCT_NAME := aosp_molly
 PRODUCT_DEVICE := molly
 PRODUCT_BRAND := google

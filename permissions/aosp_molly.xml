@@ -14,12 +14,19 @@
      limitations under the License.
 -->
 
-<!-- These are the hardware components that molly includes. -->
+<!-- These are the components necessary to tabler builds. -->
+
 <permissions>
-    <feature name="android.hardware.bluetooth" />
-    <feature name="android.hardware.bluetooth_le" />
-    <feature name="android.hardware.microphone" />
-    <feature name="android.hardware.screen.landscape" />
-    <feature name="android.software.backup" />
-    <feature name="android.software.app_widgets" />
+    <feature name="android.software.print" />
+    <feature name="android.software.voice_recognizers" />
+
+    <feature name="android.hardware.touchscreen" />
+    <feature name="android.hardware.faketouch" />
+    <feature name="android.software.live_wallpaper" />
+    <feature name="android.software.input_methods" />
+    <feature name="android.software.home_screen" />
+    <feature name="android.software.device_admin" />
+    <feature name="android.software.managed_users" />
+     <feature name="android.hardware.audio.output" />
+    <feature name="android.software.print" />
 </permissions>

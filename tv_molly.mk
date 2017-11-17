@@ -18,6 +18,11 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/com.google.android.tv.installed.xml:system/etc/permissions/com.google.android.tv.installed.xml \
+    $(LOCAL_PATH)/permissions/tv_molly.xml:system/etc/permissions/tv_molly.xml
+
 # TV-specific Apps/Packages
 PRODUCT_PACKAGES += \
     AppDrawer \
