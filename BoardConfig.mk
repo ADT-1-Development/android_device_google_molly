@@ -37,6 +37,10 @@ TARGET_NO_BOOTLOADER := true
 # Camera
 USE_CAMERA_STUB := true
 
+# Graphics
+USE_OPENGL_RENDERER := true
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1
+
 # Kernel
 BOARD_KERNEL_CMDLINE :=  androidboot.hardware=molly console=ttyFIQ0 smsc95xx.boot_wol_config=0x07 smsc95xx.turbo_mode=N
 

@@ -47,6 +47,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true \
     ro.com.widevine.cachesize=16777216
 
+# GL Compatibillity with 6.0.y and above
+PRODUCT_PACKAGES += \
+    libmhax
+
+#  OpenGL ES 2.0
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=131072
+
 # Power HAL
 PRODUCT_PACKAGES += \
     power.molly
