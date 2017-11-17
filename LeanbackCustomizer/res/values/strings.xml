@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_label">TvLeanbackCustomizer</string>
+
+    <string name="partner_row_title">Custom Apps</string>
+    <string name="apps_row_title">My Apps</string>
+    <string name="games_row_title">My Games</string>
+    <string name="inputs_row_title">My Inputs</string>
+    <string name="settings_row_title">My Settings</string>
+
+    <!-- Content description for Jelly -->
+    <string name="browser">Jelly</string>
+    <!-- Content description for Kodi -->
+    <string name="kodi">Kodi</string>
+    <!-- Content description for banner to encourage users to download the Kodi App -->
+    <string name="try_kodi">Try Kodi</string>
+
+</resources>
