@@ -18,6 +18,9 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# Device Type
+PRODUCT_CHARACTERISTICS := tv,nosdcard
+
 # DPI
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320

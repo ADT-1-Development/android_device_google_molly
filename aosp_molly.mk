@@ -18,6 +18,9 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# Device Type
+PRODUCT_CHARACTERISTICS := tablet,nosdcard
+
 # DPI
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
