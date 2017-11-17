@@ -18,6 +18,11 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# DPI
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240
+
+# Launcher
 PRODUCT_PACKAGES += \
      Launcher3
 

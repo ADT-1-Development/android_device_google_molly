@@ -18,6 +18,10 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# DPI
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=320
+
 # Permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.google.android.tv.installed.xml:system/etc/permissions/com.google.android.tv.installed.xml \
