@@ -16,9 +16,6 @@
 # Inherit Vendor
 $(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay
-
 # Audio
 PRODUCT_PACKAGES += \
     libtinyalsa \

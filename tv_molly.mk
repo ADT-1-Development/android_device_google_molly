@@ -18,6 +18,9 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-tv
+
 # Device Type
 PRODUCT_CHARACTERISTICS := tv,nosdcard
 

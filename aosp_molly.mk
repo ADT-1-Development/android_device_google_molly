@@ -18,6 +18,9 @@
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-aosp
+
 # AppWidget permission needed to prevent a Launcher crash.
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml
