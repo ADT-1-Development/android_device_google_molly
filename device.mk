@@ -16,6 +16,9 @@
 # Inherit Vendor
 $(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
 
+PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
 # Audio
 PRODUCT_PACKAGES += \
     libtinyalsa \
