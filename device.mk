@@ -51,7 +51,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libmhax
 
-# HDMI
+# HDMI CEC: Molly works as a playback device (4)
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
 # LED
