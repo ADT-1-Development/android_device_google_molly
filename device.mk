@@ -54,6 +54,10 @@ PRODUCT_PACKAGES += \
 # HDMI
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
 
+# LED
+PRODUCT_PACKAGES += \
+    MollyLED
+
 #  OpenGL ES 2.0
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072
