@@ -91,6 +91,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.media.avsync=true \
     media.aac_51_output_enabled=true
 
+# USB
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
 # Wifi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
