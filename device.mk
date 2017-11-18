@@ -77,6 +77,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.molly
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.molly \
+    init.molly.rc \
+    init.molly.usb.rc \
+    init.molly.led.rc \
+    ueventd.molly.rc
+
 # Stagefright
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.cache-params=10240/20480/15 \
