@@ -38,6 +38,9 @@ TARGET_NO_RADIOIMAGE := true
 # Camera
 USE_CAMERA_STUB := true
 
+# Fonts (includes additional fonts)
+EXTENDED_FONT_FOOTPRINT := true
+
 # Graphics
 USE_OPENGL_RENDERER := true
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1
