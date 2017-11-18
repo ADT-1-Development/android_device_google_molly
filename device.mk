@@ -99,6 +99,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp
+
 # Wifi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
