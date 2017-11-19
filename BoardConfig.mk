@@ -48,7 +48,7 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1
 # Kernel
 BOARD_KERNEL_CMDLINE :=  androidboot.hardware=molly console=ttyFIQ0 smsc95xx.boot_wol_config=0x07 smsc95xx.turbo_mode=N androidboot.selinux=permissive
 TARGET_KERNEL_SOURCE := kernel/google/molly
-TARGET_KERNEL_CONFIG := molly_defconfig
+TARGET_KERNEL_CONFIG := lineageos_molly_defconfig
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 
