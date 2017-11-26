@@ -44,7 +44,7 @@ PRODUCT_COPY_FILES += \
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.implicit_checks=none
+    dalvik.vm.implicit_checks=none \
     dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapgrowthlimit=128m \
     dalvik.vm.heapsize=174m
