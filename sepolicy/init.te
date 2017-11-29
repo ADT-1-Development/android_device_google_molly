@@ -22,4 +22,6 @@ allow init loop_device:blk_file write;
 allow init property_socket:sock_file write;
 allow init self:process setcurrent;
 allow init untrusted_app_devpts:chr_file { read write ioctl open getattr };
+allow init debugfs:dir mounton;
+allow init debugfs:file write;
 

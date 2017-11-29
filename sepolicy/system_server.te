@@ -43,3 +43,7 @@ allow system_server fuse:dir search;
 
 # power hal access to dev/led
 allow system_server led_device:chr_file r_file_perms;
+
+allow system_server hwui_prop:file { getattr open read };
+allow system_server unlabeled:file unlink;
+

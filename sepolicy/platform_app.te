@@ -27,3 +27,5 @@ allow platform_app system_app_data_file:dir search;
 # Allow Molly Platform Apps
 allow platform_app throughput_device:chr_file write;
 
+allow platform_app hwui_prop:file { getattr open read };
+

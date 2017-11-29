@@ -52,3 +52,5 @@ allow mediaserver app_data_file:dir read;
 # DxDrm access
 allow mediaserver drm_data_file:dir rw_dir_perms;
 allow mediaserver drm_data_file:file create_file_perms;
+
+allow mediaserver camera_device:chr_file { ioctl open read write };

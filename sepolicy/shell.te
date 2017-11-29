@@ -26,4 +26,6 @@ allow shell device:chr_file getattr;
 allow shell device:dir { open read };
 allow shell device:file getattr;
 allow shell hci_attach_dev:chr_file getattr;
+allow shell self:socket { create ioctl };
+allow shell self:udp_socket ioctl;
 
