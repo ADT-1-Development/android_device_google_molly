@@ -21,3 +21,9 @@ allow shell throughput_device:chr_file { open read write ioctl };
 #allow shell dalvikcache_data_file:dir write;
 #allow shell dalvikcache_data_file:file write;
 
+# Molly /dev/mbtchar0 access
+allow shell device:chr_file getattr;
+allow shell device:dir { open read };
+allow shell device:file getattr;
+allow shell hci_attach_dev:chr_file getattr;
+

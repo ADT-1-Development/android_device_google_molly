@@ -19,9 +19,7 @@
 
 #include "alsa_utils.h"
 
-#ifndef ALSA_UTILS_PRINT_FORMATS
 #define ALSA_UTILS_PRINT_FORMATS  1
-#endif
 
 int find_alsa_card_by_name(const char* name) {
     int card_id = 0;
@@ -256,11 +254,11 @@ void HDMIAudioCaps::getFmtsForAF(String8& fmts) {
         return;
     }
 
-    // These names must match formats in android.media.AudioFormat
     fmts.append("AUDIO_FORMAT_PCM_16_BIT|AUDIO_FORMAT_PCM_8_24_BIT");
     // TODO: when we can start to expect 20 and 24 bit audio modes coming from
     // AF, we need to implement support to enumerate those modes.
 
+    // These names must match formats in android.media.AudioFormat
     for (size_t i = 0; i < mModes.size(); ++i) {
         switch (mModes[i].fmt) {
             case kFmtAC3:
@@ -279,8 +277,6 @@ void HDMIAudioCaps::getFmtsForAF(String8& fmts) {
                 break;
         }
     }
-    // HDMI supports IEC61937 S/PDIF audio wrapper.
-    fmts.append("|AUDIO_FORMAT_IEC61937");
 
 #if ALSA_UTILS_PRINT_FORMATS
     ALOGI("ALSAFORMATS: formats = %s", fmts.string());
@@ -369,19 +365,13 @@ bool HDMIAudioCaps::supportsFormat(audio_format_t format,
         return false;
 
     AudFormat alsaFormat;
-    switch (audio_get_main_format(format)) {
+    switch (format & AUDIO_FORMAT_MAIN_MASK) {
         case AUDIO_FORMAT_PCM: alsaFormat = kFmtLPCM; break;
         case AUDIO_FORMAT_AC3: alsaFormat = kFmtAC3; break;
         case AUDIO_FORMAT_E_AC3: alsaFormat = kFmtAC3; break; // FIXME should this be kFmtEAC3?
         case AUDIO_FORMAT_DTS: alsaFormat = kFmtDTS; break;
         case AUDIO_FORMAT_DTS_HD: alsaFormat = kFmtDTSHD; break;
-        case AUDIO_FORMAT_IEC61937:
-            alsaFormat = kFmtLPCM;
-            isIec958NonAudio = true;
-            break;
-        default:
-            ALOGE("supportsFormat() says format %#x not supported", format);
-            return false;
+        default: return false;
     }
 
     // EAC3 uses a PCM sample rate of 4X the base rate.
@@ -411,17 +401,14 @@ bool HDMIAudioCaps::supportsFormat(audio_format_t format,
 
     // if PCM then determine actual bits per sample.
     if (alsaFormat == kFmtLPCM) {
+        uint32_t subFormat = format & AUDIO_FORMAT_SUB_MASK;
         BPSMask bpsMask;
-        switch (format) {
+        switch (subFormat) {
         // FIXME: (legacy code). We match on 16 bits, but on Fugu we hard code to use
         // PCM_FORMAT_S24_LE.
-            case AUDIO_FORMAT_PCM_16_BIT: // fall through
-            case AUDIO_FORMAT_PCM_8_24_BIT:
-            case AUDIO_FORMAT_IEC61937:
-                bpsMask = kBPS_16bit;
-                break;
-            default:
-                return false;
+            case AUDIO_FORMAT_PCM_SUB_16_BIT: // fall through
+            case AUDIO_FORMAT_PCM_SUB_8_24_BIT: bpsMask = kBPS_16bit; break;
+            default: return false;
         }
 
         // Is the caller requesting basic audio?  If so, we should be good to go.

@@ -94,6 +94,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.molly \
+    init.comms.rc \
     init.molly.rc \
     init.molly.usb.rc \
     init.molly.led.rc \
@@ -109,8 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp
-
 # Wifi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
@@ -120,8 +119,23 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi_loader.sh:system/bin/wifi_loader.sh \
+    $(LOCAL_PATH)/wpa_supplicant.sh:system/bin/wpa_supplicant.sh \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
+# Leanback Launcher
+PRODUCT_PACKAGES += \
+    AppDrawer \
+    LeanbackLauncher \
+    LeanbackCustomize \
+    LeanbackIme \
+    Provision \
+    TvProvider \
+    TvSettings \
+    tv_input.default \
+    TV
 
-PRODUCT_PROPERTY_OVERRIDES += wifi.interface=wlan0
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    persist.sys.usb.config=mtp,adb

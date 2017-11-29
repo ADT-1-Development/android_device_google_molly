@@ -21,28 +21,18 @@ $(call inherit-product, device/google/atv/products/atv_base.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-tv
 
-# Device Type
-PRODUCT_CHARACTERISTICS := tv,nosdcard
-
 # DPI
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
+
+# AppWidget permission needed to prevent a Launcher crash.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.google.android.tv.installed.xml:system/etc/permissions/com.google.android.tv.installed.xml \
     $(LOCAL_PATH)/permissions/tv_molly.xml:system/etc/permissions/tv_molly.xml
-
-# TV-specific Apps/Packages
-PRODUCT_PACKAGES += \
-    AppDrawer \
-    LeanbackCustomizer \
-    LeanbackLauncher \
-    LeanbackIme \
-    TvProvider \
-    tv_input.default \
-    TV \
-    TvSettings
 
 PRODUCT_NAME := tv_molly
 PRODUCT_DEVICE := molly

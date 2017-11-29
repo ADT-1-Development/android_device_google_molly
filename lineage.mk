@@ -17,31 +17,10 @@
 
 $(call inherit-product, device/google/molly/device.mk)
 $(call inherit-product, vendor/cm/config/common_full_tv.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, device/google/molly/aosp_molly.mk)
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/molly/overlay-aosp
-
-# AppWidget permission needed to prevent a Launcher crash.
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml
+$(call inherit-product, device/google/molly/tv_molly.mk)
 
 # Device Type
-PRODUCT_CHARACTERISTICS := tablet,nosdcard
-
-# DPI
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240
-
-# Launcher
-PRODUCT_PACKAGES += \
-     Launcher3
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    $(LOCAL_PATH)/permissions/aosp_molly.xml:system/etc/permissions/aosp_molly.xml
+PRODUCT_CHARACTERISTICS := tv,nosdcard
 
 PRODUCT_NAME := lineage_molly
 PRODUCT_DEVICE := molly
