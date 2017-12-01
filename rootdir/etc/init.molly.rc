@@ -148,6 +148,7 @@ on fs
 
     mkdir /factory 0775 radio radio
     mount_all ./fstab.molly
+    swapon_all ./fstab.molly
 
     # We chown/chmod /factory because mount is run as root + defaults
     chown radio radio /factory

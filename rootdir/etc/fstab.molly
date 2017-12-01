@@ -14,4 +14,5 @@
 /dev/block/platform/sdhci-tegra.3/by-name/staging     /staging            emmc      defaults                                              defaults
 /dev/block/platform/sdhci-tegra.3/by-name/sysdata     /sysdata            emmc      defaults                                              defaults
 /devices/platform/tegra-xhci/usb*                     auto                auto      defaults                                              voldmanaged=usb:auto,encryptable=userdata
+/dev/block/zram0                                      none                swap      defaults	                                          zramsize=536870912
 
