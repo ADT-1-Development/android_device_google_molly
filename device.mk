@@ -15,6 +15,8 @@
 
 # Inherit Vendor
 $(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
+#Prebuilt TV Gapps
+$(call inherit-product, 3rdparty/google/gms-apps/tv/gms.mk)
 
 PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -59,7 +61,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # GL Compatibillity with 6.0.y and above
 PRODUCT_PACKAGES += \
-    libmhax
+    libmhax \
+    libstlport
 
 # HDMI CEC: Molly works as a playback device (4)
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4
@@ -139,3 +142,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     persist.sys.usb.config=mtp,adb
+
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1
+
