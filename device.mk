@@ -20,6 +20,8 @@ $(call inherit-product, 3rdparty/google/gms-apps/tv/gms.mk)
 
 PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -44,14 +46,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
-# Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.implicit_checks=none \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heapgrowthlimit=128m \
-    dalvik.vm.heapsize=174m
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=16m \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapsize=350m
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -61,8 +61,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # GL Compatibillity with 6.0.y and above
 PRODUCT_PACKAGES += \
-    libmhax \
-    libstlport
+    libmhax
 
 # HDMI CEC: Molly works as a playback device (4)
 PRODUCT_PROPERTY_OVERRIDES += ro.hdmi.device_type=4

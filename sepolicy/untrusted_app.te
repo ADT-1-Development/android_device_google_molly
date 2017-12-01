@@ -34,3 +34,6 @@ allow untrusted_app system_app_data_file:dir search;
 allow untrusted_app tsec_device:chr_file rw_file_perms;
 
 allow untrusted_app sysfs:file { open read };
+
+# Allow untrusted_app to access dvb_device
+allow untrusted_app dvb_device:chr_file rw_file_perms;

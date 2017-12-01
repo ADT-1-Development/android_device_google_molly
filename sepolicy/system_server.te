@@ -47,3 +47,6 @@ allow system_server led_device:chr_file r_file_perms;
 allow system_server hwui_prop:file { getattr open read };
 allow system_server unlabeled:file unlink;
 
+# Access dvb device
+allow system_server dvb_device:chr_file rw_file_perms;
+

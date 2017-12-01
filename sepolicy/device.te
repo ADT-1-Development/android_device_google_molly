@@ -32,3 +32,6 @@ type factory_block_device, dev_type;
 
 # dev/led
 type led_device, dev_type;
+
+# DVB API device node
+type dvb_device, dev_type, mlstrustedobject;

@@ -35,6 +35,9 @@
 # gps
 /system/bin/glgps_nvidiaTegra2android	u:object_r:gpsd_exec:s0
 
+# DVB API device nodes
+/dev/dvb.*                              u:object_r:dvb_device:s0
+
 # set_hwui_params.sh -- set android hwui parameters on boot time
 /system/bin/set_hwui_params.sh		u:object_r:set_hwui_exec:s0
 
