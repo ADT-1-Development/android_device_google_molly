@@ -37,6 +37,20 @@ USE_CUSTOM_AUDIO_POLICY := 1
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/libaudio/audio_policy.conf:system/etc/audio_policy.conf
 
+#enable Widevine drm
+PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
+PRODUCT_PACKAGES += \
+    com.google.widevine.software.drm.xml \
+    com.google.widevine.software.drm \
+    libdrmwvmplugin \
+    libwvm \
+    libWVStreamControlAPI_L1 \
+    libwvdrm_L1
+
+# Widevine shim
+PRODUCT_PACKAGES += \
+    libwvm_shim
+
 # Codecs
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -47,11 +61,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=16m \
-    dalvik.vm.heapgrowthlimit=256m \
-    dalvik.vm.heapsize=350m
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
