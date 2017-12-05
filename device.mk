@@ -14,9 +14,11 @@
 # limitations under the License.
 
 # Inherit Vendor
-$(call inherit-product-if-exists, vendor/google/molly/molly-vendor.mk)
+$(call inherit-product, vendor/google/molly/molly-vendor.mk)
 #Prebuilt TV Gapps
 $(call inherit-product, 3rdparty/google/gms-apps/tv/gms.mk)
+# Widevine L1
+$(call inherit-product, vendor/google/widevine/widevine.mk)
 
 PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
